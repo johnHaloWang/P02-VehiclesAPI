@@ -44,10 +44,10 @@ public class PricingController {
         }
 
     }
-
     @GetMapping("/all")
     public ResponseEntity<List<Price>> getAllPrices() {
         List<Price> list = pricingService.retrievePrice();
         return new ResponseEntity<List<Price>>(list, HttpStatus.OK);
+
     }
 }

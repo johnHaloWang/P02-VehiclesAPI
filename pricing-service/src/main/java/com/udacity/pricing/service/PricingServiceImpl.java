@@ -21,7 +21,7 @@ public class PricingServiceImpl implements PricingService{
     @Override
     public Price getPrice(Long vehicleId) throws PriceException {
 
-        Optional<Price> find = priceRepository.findById(vehicleId);
+        Optional<Price> find = priceRepository.findPriceByVehicleById(vehicleId);
         if(find.isEmpty()){
             throw new PriceException("Cannot find price for Vehicle " + vehicleId);
         }
