@@ -29,3 +29,15 @@ $ java -jar target/pricing-service-0.0.1-SNAPSHOT.jar
 ```
 
 It can also be imported in your IDE as a Maven project.
+
+## PROJECT SPECIFICATION
+
+## Rubric
+Convert the Pricing Service
+
+|   |CRITERIA|MEETS SPECIFICATIONS|
+|---|--------|--------------------|
+|[ ]|The Pricing Service is converted to a microservice.|The Pricing Service API is converted to a microservice with Spring Data REST, without the need to explicitly include code for the Controller or Service.||
+|[ ]|A Eureka server is used and the Pricing Service is registered with that server.| A Eureka server is implemented and running on port 8761. The Pricing Service is registered on that server and is named pricing-service.||
+|[ ]|A Eureka server is used and the Pricing Service is registered with that server.| The Vehicles API should be able to use the Eureka server to call the pricing service.||
+|[ ]|At least one additional test is added for the Pricing Service.| Within the test folder, at least one additional test has been implemented outside of contextLoads() for the overall Pricing Service Application.||
