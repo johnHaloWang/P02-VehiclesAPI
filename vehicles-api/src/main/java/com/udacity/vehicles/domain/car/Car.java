@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+
+import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -21,6 +23,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
  * Declares the Car class, related variables and methods.
  */
 @Entity
+@Data
 @EntityListeners(AuditingEntityListener.class)
 public class Car {
 

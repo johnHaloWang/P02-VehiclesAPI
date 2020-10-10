@@ -2,6 +2,7 @@ package com.udacity.vehicles;
 
 import com.udacity.vehicles.domain.manufacturer.Manufacturer;
 import com.udacity.vehicles.domain.manufacturer.ManufacturerRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -16,12 +17,16 @@ import org.springframework.web.reactive.function.client.WebClient;
  * initializes the car manufacturers in the database,
  * and launches web clients to communicate with maps and pricing.
  */
+@Slf4j
 @SpringBootApplication
 @EnableJpaAuditing
 public class VehiclesApiApplication {
 
+    private static final String _TAG = "VehiclesApiApplication";
+
     public static void main(String[] args) {
         SpringApplication.run(VehiclesApiApplication.class, args);
+        log.info(_TAG + "-> Starting Vehicles Appplication");
     }
 
     /**

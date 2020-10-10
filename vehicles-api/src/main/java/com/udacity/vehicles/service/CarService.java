@@ -1,8 +1,14 @@
 package com.udacity.vehicles.service;
 
+import com.udacity.vehicles.client.maps.MapsClient;
+import com.udacity.vehicles.client.prices.PriceClient;
+import com.udacity.vehicles.domain.Location;
 import com.udacity.vehicles.domain.car.Car;
 import com.udacity.vehicles.domain.car.CarRepository;
 import java.util.List;
+import java.util.Optional;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,17 +16,23 @@ import org.springframework.stereotype.Service;
  * information about vehicles, as well as gather related
  * location and price data when desired.
  */
+@Slf4j
 @Service
 public class CarService {
 
+    private static final String _TAG = "CarService";
     private final CarRepository repository;
+    private final MapsClient mapsClient;
+    private final PriceClient priceClient;
 
-    public CarService(CarRepository repository) {
+    public CarService(CarRepository repository, MapsClient mapsClient, PriceClient priceClient) {
         /**
          * TODO: Add the Maps and Pricing Web Clients you create
          *   in `VehiclesApiApplication` as arguments and set them here.
          */
         this.repository = repository;
+        this.mapsClient = mapsClient;
+        this.priceClient = priceClient;
     }
 
     /**
@@ -28,7 +40,9 @@ public class CarService {
      * @return a list of all vehicles in the CarRepository
      */
     public List<Car> list() {
-        return repository.findAll();
+        List<Car> list =repository.findAll();
+        log.info(_TAG + "-> in list: " + list.size() );
+        return list;
     }
 
     /**
@@ -43,6 +57,16 @@ public class CarService {
          *   Remove the below code as part of your implementation.
          */
         Car car = new Car();
+        Optional<Car> optionalCar = this.repository.findById(id);
+        if(optionalCar.isPresent()){
+            car = optionalCar.get();
+        }else{
+            log.info(_TAG + "-> can't find the car in findById method: " + car.toString());
+            throw new CarNotFoundException("The car id can't find in the system");
+        }
+        //Car car = this.repository.findById(id).orElseThrow(()-> new CarNotFoundException("The car id can't find in the system"));
+
+
 
         /**
          * TODO: Use the Pricing Web client you create in `VehiclesApiApplication`
@@ -52,6 +76,9 @@ public class CarService {
          *   the pricing service each time to get the price.
          */
 
+        String price =this.priceClient.getPrice(car.getId());
+        log.info(_TAG + "-> in findById: " + car.getId() + "; price: " + price);
+        car.setPrice(price);
 
         /**
          * TODO: Use the Maps Web client you create in `VehiclesApiApplication`
@@ -62,7 +89,9 @@ public class CarService {
          * meaning the Maps service needs to be called each time for the address.
          */
 
-
+        Location loc = car.getLocation();
+        car.setLocation(this.mapsClient.getAddress(loc));
+        log.info(_TAG + "-> in findById: " + car.getId() + "; address: " + loc.getAddress() + "; city: " + loc.getCity() +  "; state" + loc.getState() + "; zip: " + loc.getZip());
         return car;
     }
 
@@ -77,10 +106,11 @@ public class CarService {
                     .map(carToBeUpdated -> {
                         carToBeUpdated.setDetails(car.getDetails());
                         carToBeUpdated.setLocation(car.getLocation());
+                        log.info(_TAG + "-> in save (update): " + carToBeUpdated.toString());
                         return repository.save(carToBeUpdated);
                     }).orElseThrow(CarNotFoundException::new);
         }
-
+        log.info(_TAG + "-> in save (new) " + car.getDetails());;
         return repository.save(car);
     }
 
@@ -93,12 +123,12 @@ public class CarService {
          * TODO: Find the car by ID from the `repository` if it exists.
          *   If it does not exist, throw a CarNotFoundException
          */
-
+        Car car = this.repository.findById(id).orElseThrow(()-> new CarNotFoundException("The car id: " +  Long.toString(id) + " can't find in the system"));
 
         /**
          * TODO: Delete the car from the repository.
          */
-
-
+        log.info(_TAG + "-> in delete " + car.toString());
+        this.repository.delete(car);
     }
 }

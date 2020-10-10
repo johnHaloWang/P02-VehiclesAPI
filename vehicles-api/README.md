@@ -109,3 +109,27 @@ the Vehicle information to be presented
 ### Delete a Vehicle
 
 `DELETE` `/cars/{id}`
+
+
+## Rubric
+Implement the Vehicles API
+
+|     |CRITERIA|MEETS SPECIFICATIONS|
+|-|--------|--------------------|
+|[X]|The Vehicles API can perform READ operations.| A Eureka server is implemented and running on port 8761.<br>The Pricing Service is registered on that server and is named pricing-service.|
+|[X]|The Vehicles API can perform UPDATE operations.| The Vehicles API can update an existing vehicle through input from the user. |
+|[X]|The Vehicles API can perform DELETE operations.| The Vehicles API can delete an existing vehicle when requested by the user.|
+|[X]|The Vehicles API can request location data from Boogle Maps, and pricing data from the Pricing Service.| The Vehicles API is able to consume information from the separate Boogle Maps and Pricing Service APIs, and return that information as part of the vehicle information for a single vehicle. <br> Note: Boogle Maps will assign a new random address each time a query is called, so don't fret if it changes between queries. |
+
+Testing the Vehicles API
+
+|     |CRITERIA|MEETS SPECIFICATIONS|
+|-|--------|--------------------|
+|[N]|Tests are implemented for the Vehicles API CarController that cover the CRUD (Create, Read, Update, Delete) operations.| Within the CarControllerTest.java file, the TODOs for tests of CRUD operations have been implemented. <br> You are welcome to add additional tests beyond these as desired!|
+|[N]|All necessary dependencies are included in each Application's POM files, and the code runs successfully.| All necessary dependencies have been added to the relevant POM files, and the code is able to run both from tests and in launching the actual applications. |
+
+API Documentation
+
+|     |CRITERIA|MEETS SPECIFICATIONS|
+|-|--------|--------------------|
+|[N]|API documentation for the Vehicles API is implemented using Swagger.| API documentation for the Vehicles API is implemented using Swagger, and all related API queries are able to be run from there. The documentation is available at http://localhost:8080/swagger-ui.html when the application is running.<br><br>Note: You are welcome to add Swagger API documentation for the other APIs, but it is not required. |
