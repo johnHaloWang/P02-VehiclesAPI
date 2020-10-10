@@ -125,11 +125,14 @@ Testing the Vehicles API
 
 |     |CRITERIA|MEETS SPECIFICATIONS|
 |-|--------|--------------------|
-|[N]|Tests are implemented for the Vehicles API CarController that cover the CRUD (Create, Read, Update, Delete) operations.| Within the CarControllerTest.java file, the TODOs for tests of CRUD operations have been implemented. <br> You are welcome to add additional tests beyond these as desired!|
-|[N]|All necessary dependencies are included in each Application's POM files, and the code runs successfully.| All necessary dependencies have been added to the relevant POM files, and the code is able to run both from tests and in launching the actual applications. |
+|[X]|Tests are implemented for the Vehicles API CarController that cover the CRUD (Create) operations.| Within the CarControllerTest.java file, the TODOs for tests of CRUD operations have been implemented. <br> You are welcome to add additional tests beyond these as desired!|
+|[X]|Tests are implemented for the Vehicles API CarController that cover the CRUD (Read) operations.| Within the CarControllerTest.java file, the TODOs for tests of CRUD operations have been implemented. <br> You are welcome to add additional tests beyond these as desired!|
+|[N]|Tests are implemented for the Vehicles API CarController that cover the CRUD (Update) operations.| Within the CarControllerTest.java file, the TODOs for tests of CRUD operations have been implemented. <br> You are welcome to add additional tests beyond these as desired!|
+|[X]|Tests are implemented for the Vehicles API CarController that cover the CRUD (Delete) operations.| Within the CarControllerTest.java file, the TODOs for tests of CRUD operations have been implemented. <br> You are welcome to add additional tests beyond these as desired!|
+|[X]|All necessary dependencies are included in each Application's POM files, and the code runs successfully.| All necessary dependencies have been added to the relevant POM files, and the code is able to run both from tests and in launching the actual applications. |
 
 API Documentation
 
 |     |CRITERIA|MEETS SPECIFICATIONS|
 |-|--------|--------------------|
-|[N]|API documentation for the Vehicles API is implemented using Swagger.| API documentation for the Vehicles API is implemented using Swagger, and all related API queries are able to be run from there. The documentation is available at http://localhost:8080/swagger-ui.html when the application is running.<br><br>Note: You are welcome to add Swagger API documentation for the other APIs, but it is not required. |
+|[X]|API documentation for the Vehicles API is implemented using Swagger.| API documentation for the Vehicles API is implemented using Swagger, and all related API queries are able to be run from there. The documentation is available at http://localhost:8080/swagger-ui.html when the application is running.<br><br>Note: You are welcome to add Swagger API documentation for the other APIs, but it is not required. |
