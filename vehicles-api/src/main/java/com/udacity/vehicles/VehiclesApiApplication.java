@@ -26,7 +26,7 @@ public class VehiclesApiApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(VehiclesApiApplication.class, args);
-        log.info(_TAG + "-> Starting Vehicles Appplication");
+        //log.info(_TAG + "-> Starting Vehicles Appplication");
     }
 
     /**

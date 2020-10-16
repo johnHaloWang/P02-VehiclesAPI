@@ -187,6 +187,7 @@ public class CarControllerTest {
         List<Car> list = carService.list();
         car.setId((list.get(0).getId()));
         log.debug("id: " + car.getId());
+        given(carService.save(any())).willReturn(car);
         details.setBody("new body");
         mvc.perform(
                 put(new URI("/cars/1"))

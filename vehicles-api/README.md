@@ -45,28 +45,7 @@ Swagger UI: http://localhost:8080/swagger-ui.html
 
 `POST` `/cars`
 ```json
-{
-   "condition":"USED",
-   "details":{
-      "body":"sedan",
-      "model":"Impala",
-      "manufacturer":{
-         "code":101,
-         "name":"Chevrolet"
-      },
-      "numberOfDoors":4,
-      "fuelType":"Gasoline",
-      "engine":"3.6L V6",
-      "mileage":32280,
-      "modelYear":2018,
-      "productionYear":2018,
-      "externalColor":"white"
-   },
-   "location":{
-      "lat":40.73061,
-      "lon":-73.935242
-   }
-}
+http://localhost:8080/swagger-ui.html
 ```
 
 ### Retrieve a Vehicle
@@ -127,7 +106,7 @@ Testing the Vehicles API
 |-|--------|--------------------|
 |[X]|Tests are implemented for the Vehicles API CarController that cover the CRUD (Create) operations.| Within the CarControllerTest.java file, the TODOs for tests of CRUD operations have been implemented. <br> You are welcome to add additional tests beyond these as desired!|
 |[X]|Tests are implemented for the Vehicles API CarController that cover the CRUD (Read) operations.| Within the CarControllerTest.java file, the TODOs for tests of CRUD operations have been implemented. <br> You are welcome to add additional tests beyond these as desired!|
-|[N]|Tests are implemented for the Vehicles API CarController that cover the CRUD (Update) operations.| Within the CarControllerTest.java file, the TODOs for tests of CRUD operations have been implemented. <br> You are welcome to add additional tests beyond these as desired!|
+|[X]|Tests are implemented for the Vehicles API CarController that cover the CRUD (Update) operations.| Within the CarControllerTest.java file, the TODOs for tests of CRUD operations have been implemented. <br> You are welcome to add additional tests beyond these as desired!|
 |[X]|Tests are implemented for the Vehicles API CarController that cover the CRUD (Delete) operations.| Within the CarControllerTest.java file, the TODOs for tests of CRUD operations have been implemented. <br> You are welcome to add additional tests beyond these as desired!|
 |[X]|All necessary dependencies are included in each Application's POM files, and the code runs successfully.| All necessary dependencies have been added to the relevant POM files, and the code is able to run both from tests and in launching the actual applications. |
 
