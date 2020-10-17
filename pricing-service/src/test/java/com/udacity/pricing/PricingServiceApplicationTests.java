@@ -42,6 +42,7 @@ public class PricingServiceApplicationTests {
 	private final static String API_URL = "/services/price";
 	private final static String _TAG = "PricingServiceApplicationTests";
 	private static int counter = 1;
+
 	@LocalServerPort
 	private int port;
 
